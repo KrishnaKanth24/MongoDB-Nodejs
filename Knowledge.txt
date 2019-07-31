@@ -1,0 +1,124 @@
+MongoDB is the name of a company
+MongoDB is the name of the database also 
+Mongo stands for huMONGOus 
+
+MongoDB is a NoSQL database
+A database contains many collections, inside each collection contains documents 
+a collection can be assumed like a basket and documents can be assumed a like fruits in it 
+there is no set rule that apple or banana must be present, but rather says that it should contain fruits
+
+A collection named orders and document in it can be name, product_purchased price 
+the name can contain few items like name user_id 
+but there can be a seperate collection for user in which detailed information about a user can be present 
+so to retrieve list of orders entire collection can be sent, instead of querying by writing selected commands and conditions
+it makes reading faster
+
+since document inside a collection doesnot have a fixed schema
+
+Hitesh choudary 
+lesson1:
+mongodb stores data in flexible JSON-like documents 
+
+lesson2:
+it follows a no schema design
+Construction of MongoDB:
+website-> nodejs-> mongoose-orm-> shell-> mongoDB server-> WiredTiger Storage Engine-> you file(collection of documents)
+Mongoose makes handling api easier   
+
+lesson3 :
+Mocha is a testing framework
+client to web server connection is established when client requests for a webpage 
+but web server to database is always established
+read or write ops from database-----> there is a deliberate wait---> reply from database(asynchronous but promises used)
+
+lesson4:
+umbrella of mongodb
+community edition of mongoDB - free version
+enterprise edition of mongoDB - paid version 
+atlas - you can create a database in the cloud by paying but there is also a paid version
+mobile -you can make your mobile a database
+ops manager
+Bl connector
+mongoDB charts - all three are for data scientists helps to analyse data patterns 
+compass-GUI - same like robo3t but this GUI is released by the company itself
+robo 3T
+there also another one called mongo stitch mongodb.com/cloud/stitch
+
+lesson6:
+how to install mongoDB
+download mongoDB community edition from their website 
+install it 
+	dont need to change directory
+	click complete installation
+	check the box on install mongoD as a service 
+	click radio button on run service as network service user 
+	dont need to change directory 
+Run this command in CMD
+C:\Program Files\MongoDB\Server\4.0\bin\mongo.exe
+in windows, previous versions of mongodb require you to create data and db directory manually
+in latest versions from 4.0 
+go to services.msc under windows,  MongoDB server is always running 
+even if u didnt run that command mongo server will be running 
+(i tried to set it to manual but it is working if i start the server in cmd prompt)
+ 
+Lesson7:
+CRUD operations
+run this cmd C:\Program Files\MongoDB\Server\4.0\bin\mongo.exe
+this will make the server running 
+and > will be displayed (which is nothing but u can give shell commands)
+type "show dbs" it will show list of databases 
+type "use students" (students is the name of the database) to go into a database if it is created or create one
+MongoDB stores BSON data format
+type "db.studentCollection.insertOne({"name": "krishna", "age":"20", "attitude":"does not have a bad attitude"})"
+will create a collection named studentCollection and creates one document 
+type "db.studentCollection.find()" to list all the documents inside a collection
+type "db.studentCollection.finc().pretty()" to list all the documents in a more readable format
+
+Lesson8:
+how to configure robo 3T
+Click file--> connect--> on top click Create--> a new window will come (let all remain the same but make sure port is 27017) click save
+now under mongoDb connections box there will be a new entry click that and click connect 
+in mongoDB JSON strings are converted into BSON 
+_id is not allowed in Json but allowed in BSON
+type "db.studentCollection.insertOne({"name":"wilson","age":"20","_id":"123abc"}) 
+you can enter your id instead of mongo automatically generating
+it is not recommended to give your id ... now if u create another document with same id it will throw an error
+
+Lesson9:
+three A of mongoDB
+1.Application
+2.Analytics
+3.Admin
+
+CREATE 
+	insertOne(data,options)
+	insertMany(data,options)
+READ
+	find(filter,options)
+	findOne(filter,options) -returns only the first element that matches the criteria 
+UPDATE
+	updateOne(filter, data, options)
+	updateMany(filter, data, options)
+	replaceOne(filter, data, options)
+DELETE
+	deleteOne(filter, options)
+	deleteMany(filter, options)
+	
+Lesson10:
+unique thing about a collection in which you want to add something or delete something
+type "db.studentCollection.deleteOne({"attitude":"does not have a bad attitude"})" to delete a document that contains this entry
+type "db.studentCollection.updateOne({"age":"20"},{"address":"wilson lives in chennai"}) will throw an error
+	it will say missing atomic operator
+	atomic operator is a keyword that starts with a $
+type "db.studentCollection.updateOne({"name":"wilson"},{$set:{"address":"wilson lives in chennai"}}) now the prob is solved
+	 name:wilson will uniquely identify that document
+
+Lesson11:
+you can use updateMany command only if u have same key value pair in many documents	
+to update everything with a new key value pair simply set the  filter as nothing
+type "db.studentCollection.updateMany({},{"pressure":"max"})
+even if any one document already has this key value pair it wont throw error it simply adds for the rest of documents 
+type "db.studentCollection.updateOne({},{"pressure":"max"})
+above code updates the first document in a collection
+
+	 
