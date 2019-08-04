@@ -1,0 +1,5 @@
+{
+    "txtArrayIndexOrder" : ["start","meter_no","notknow1","date","time","notknow2","freq","rph_voltage","yph_voltage","bph_voltage","rph_current","yph_current","bph_current","current_average","rph_pf","yph_pf","bph_pf","tph_pf","rph_kw","yph_kw","bph_kw","tph_kw","rph_kvar","yph_kvar","bph_kvar","tph_kvar","rph_kva","yph_kva","bph_kva","tph_kva","kwh_import","kwh_export","kvarh_lag","kvarh_lead","ct","pt","kvah_import","run_hour","kvah_export","on_hour","maximum_demand","voltage_thd_phase_1","voltage_thd_phase_2","voltage_thd_phase_3","current_thd_phase_1","current_thd_phase_2","current_thd_phase_3","phase_angle_1","phase_angle_2","phase_angle_3","voltage_average","end"],
+    "mkDirSuccess" : "C:/MBSTXT/success/",
+    "mkDirFailure" : "C:/MBSTXT/failure/"
+}
